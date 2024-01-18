@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title> sign-in and login form</title>
+        <link rel="stylesheet" href="style5.css">
+        <script src="https://kit.fontawesome.com/cfdd4cd457.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav>
+            <img src= "login.jpg" class="main"></img>
+        </nav>
+        <div class="container">
+            <div class="form-box">
+                <div class="formbg">
+                <h2 id="title">Sign - Up</h2>
+                <form  method="post" action="">
+                    <div class="input-group">
+                        <div class="input-field" id="namefield">
+                            <i class="fa-regular fa-user"></i>
+                            <input type="Name" id="namefield1" placeholder="Name" required name="username">
+                        </div>
+                        <div class="input-field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" placeholder="email" required name="email">
+                        </div>
+                        <div class="input-field">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" placeholder="password" id="showpass"  required name="password">  
+                            <i class="fa fa-eye-slash" onclick="Show()"  id="show" aria-hidden="true"></i>  
+                            </div>
+                        <!--<p> lost password<a href="#"> click here!</a></p> -->
+                        <a id="LN" onclick="login()" href="#">  Already Registered ? Login</a>
+                        <a id="SU" onclick="sign_up()" class="disable1" href="#">  New User ? Sign Up</a>
+                    </div>
+                    <div class="btn-field">
+                        <button id="signupbtn"><a href="options.html">Sign up</a></button>
+                        <button id="loginbtn" class="disable1"><a href="options.html">Login</a></button>
+                    </div>
+
+                </form>
+            </div>
+            </div>
+        </div>
+        <script>
+            let signupbtn=document.getElementById("signupbtn")
+            let loginbtn=document.getElementById("loginbtn")
+            let namefield=document.getElementById("namefield")
+            let title=document.getElementById("title")
+            
+            function Show(){
+                if( document.getElementById("show").classList.contains("fa-eye-slash")){
+                    document.getElementById("show").classList.remove("fa-eye-slash");
+                    document.getElementById("show").classList.add("fa-eye");
+                }else if(document.getElementById("show").classList.contains("fa-eye")){
+                    document.getElementById("show").classList.add("fa-eye-slash");
+                    document.getElementById("show").classList.remove("fa-eye");
+                }
+                var x = document.getElementById("showpass");
+                    if (x.type === "password") {
+                    x.type = "text";
+                    } else {
+                    x.type = "password";
+                }
+            }
+            function login(){
+               // namefield.style.maxHeight="0";
+                title.innerHTML="Login";
+                signupbtn.classList.add("disable");
+                loginbtn.classList.remove("disable");
+                document.getElementById("namefield").classList.add("disable1");
+                document.getElementById("namefield1").removeAttribute('required');
+                document.getElementById("SU").classList.remove("disable1");
+                document.getElementById("LN").classList.add("disable1");
+                document.getElementById("signupbtn").classList.add("disable1");
+                document.getElementById("loginbtn").classList.remove("disable1");
+            }
+            function sign_up(){
+               // namefield.style.maxHeight="60px";
+                title.innerHTML="Sign - Up";
+                signupbtn.classList.remove("disable");
+                loginbtn.classList.add("disable");
+                document.getElementById("namefield").classList.remove("disable1");
+                document.getElementById("namefield1").setAttribute("required","true");
+                document.getElementById("SU").classList.add("disable1");
+                document.getElementById("LN").classList.remove("disable1");
+                document.getElementById("loginbtn").classList.add("disable1");
+                document.getElementById("signupbtn").classList.remove("disable1");
+                
+            }
+        </script>
+
+    </body>
+</html>
